@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" class="home-loading">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigHub Boys Collection — Wholesale & Factory Direct</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="home-body">
+
+    <!-- PRELOADER INTRO SEQUENCE (ENIGMA RHYTHM IN GRAPHIK & BIGHUB IDENTITY) -->
+    <div class="home-preloader" id="preloader">
+        <div class="home-preloader__backdrop"></div>
+        <div class="home-preloader__glow"></div>
+        <div class="home-preloader__meta">
+            <div class="preloader-eyebrow">TRUEHUB APPARELS · B2B FACTORY 2026</div>
+            <div class="preloader-title">BIGHUB BOYS COLLECTION</div>
+            <div class="preloader-counter">
+                <span class="preloader-count" id="preloaderCount">0</span>
+                <span class="preloader-percent">%</span>
+            </div>
+            <div class="preloader-status" id="preloaderStatus">Calibrating garment weave dynamics...</div>
+            <div class="preloader-progress-track">
+                <div class="preloader-progress-fill" id="preloaderFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND CANVAS: FLUID SUBTLE TEXTILE WAVE MESH (WAVILY SCROLL REACTIVE) -->
+    <div class="canvas-container" aria-hidden="true">
+        <canvas id="waveCanvas"></canvas>
+        <div class="canvas-vignette"></div>
+    </div>
+
+    <!-- SITE WRAPPER -->
+    <div class="site-wrapper" id="siteWrapper">
+
+        <!-- MINIMALIST B2B HEADER WITH 3D ROTATING LOGO IN TOP CENTER -->
+        <header class="site-header">
+            <div class="site-header__inner">
+                
+                <!-- Left: B2B Factory Coordinates -->
+                <div class="site-header__left">
+                    <span class="header-tag">B2B WHOLESALE & EXPORT</span>
+                    <span class="header-geo">HOWRAH FACTORY · 22.5958° N, 88.2636° E</span>
+                </div>
+
+                <!-- Center: 3D ROTATING LOGO (TOP CENTER) -->
+                <div class="site-header__center">
+                    <a href="#hero" class="logo-3d-wrapper" aria-label="BigHub Homepage">
+                        <div class="logo-3d-scene" id="logo3dScene">
+                            <div class="logo-3d-disc">
+                                <div class="logo-3d-face logo-3d-face--front">
+                                    <img src="assets/images/logo.png" alt="BigHub Boys Collection" class="logo-img">
+                                </div>
+                                <div class="logo-3d-face logo-3d-face--back">
+                                    <img src="assets/images/logo.png" alt="BigHub Boys Collection" class="logo-img">
+                                </div>
+                            </div>
+                            <div class="logo-3d-glow"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Right: Quick B2B Utility & WhatsApp Link -->
+                <div class="site-header__right">
+                    <nav class="header-nav">
+                        <a href="#collections" class="nav-item">COLLECTIONS</a>
+                        <a href="#factory" class="nav-item">FACTORY</a>
+                        <a href="#inquiry" class="nav-item">INQUIRY</a>
+                        <a href="https://wa.me/919831281000?text=Hi%20BigHub%2C%20we%20are%20looking%20for%20B2B%20wholesale%20catalogue%20and%20pricing." 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="nav-item nav-item--cta">
+                           WHATSAPP B2B
+                        </a>
+                    </nav>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- MAIN SITE CONTENT -->
+        <main class="site-main">
+
+            <!-- 1. HERO SECTION (BOYS AND COLLECTION IN IDENTICAL GRADIENT COLOR) -->
+            <section class="block-hero" id="hero">
+                
+                <div class="hero-top-meta">
+                    <span class="meta-pill">SPRING / SUMMER 2026</span>
+                    <span class="meta-divider"></span>
+                    <span class="meta-label">PREMIUM COMBED COTTON BOYS WEAR</span>
+                </div>
+
+                <!-- Clean, Imposing H1: Both BOYS and COLLECTION in the exact same color -->
+                <div class="hero-title-container">
+                    <h1 class="hero-title">
+                        <span class="title-line title-line--unified">BOYS</span>
+                        <span class="title-line title-line--unified">COLLECTION</span>
+                    </h1>
+                </div>
+
+                <!-- Subtitle: Subtle & Minimal for B2B Wholesale -->
+                <div class="hero-tagline-container">
+                    <p class="hero-tagline-primary">"Style, quality, and comfort for the little men in your life."</p>
+                    <p class="hero-tagline-secondary">
+                        Premier apparel manufacturing & wholesale supply for retail chains, distributors, and premium boutiques worldwide. Any day, anytime.
+                    </p>
+                </div>
+
+                <!-- Primary B2B Action Buttons -->
+                <div class="hero-actions">
+                    <a href="#inquiry" class="btn-pill btn-pill--brand">
+                        <span>REQUEST WHOLESALE CATALOGUE</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M1 6H11M11 6L6 1M11 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+
+                    <a href="#collections" class="btn-pill btn-pill--minimal">
+                        <span>EXPLORE COLLECTIONS</span>
+                    </a>
+                </div>
+
+                <!-- Minimal Curated Look Strips (Editorial Series 01-03) -->
+                <div class="hero-catalog-strip">
+                    <div class="strip-header">
+                        <span class="strip-eyebrow">SIGNATURE EDITORIAL DROPS:</span>
+                        <div class="strip-pills">
+                            <button class="strip-pill is-active" data-look="0">I · DENIM & TEES</button>
+                            <button class="strip-pill" data-look="1">II · CO-ORD SETS</button>
+                            <button class="strip-pill" data-look="2">III · HERITAGE POLOS</button>
+                        </div>
+                    </div>
+
+                    <div class="strip-grid">
+                        <div class="strip-card strip-card--active" id="previewCard1">
+                            <div class="strip-card-media">
+                                <img src="assets/images/banner1.jpg" alt="Denim Jacket & Graphic Tee">
+                            </div>
+                            <div class="strip-card-meta">
+                                <span class="card-series">SERIES 01</span>
+                                <h3 class="card-name">Urban Denim & Cotton Tee</h3>
+                                <span class="card-tag">Ages 2 – 14 Yrs · Export Grade</span>
+                            </div>
+                        </div>
+
+                        <div class="strip-card" id="previewCard2">
+                            <div class="strip-card-media">
+                                <img src="assets/images/banner2.jpg" alt="Orange Co-ord Shorts Set">
+                            </div>
+                            <div class="strip-card-meta">
+                                <span class="card-series">SERIES 02</span>
+                                <h3 class="card-name">Vibrant Active Co-Ord Set</h3>
+                                <span class="card-tag">2-Piece Combo · Breathable Fit</span>
+                            </div>
+                        </div>
+
+                        <div class="strip-card" id="previewCard3">
+                            <div class="strip-card-media">
+                                <img src="assets/images/banner3.jpg" alt="Classic Casual Polo">
+                            </div>
+                            <div class="strip-card-meta">
+                                <span class="card-series">SERIES 03</span>
+                                <h3 class="card-name">Heritage Collar Polo Suit</h3>
+                                <span class="card-tag">Semi-Formal · Pique Weave</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 2. B2B FACTORY & MANUFACTURING SECTION -->
+            <section class="block-manifesto" id="factory">
+                <div class="manifesto-grid">
+                    
+                    <div class="manifesto-info">
+                        <span class="section-tag">[ B2B MANUFACTURING EXCELLENCE ]</span>
+                        <h2 class="manifesto-heading">
+                            ENGINEERED FOR ROUGH PLAY.<br>
+                            <em>DESIGNED FOR EFFORTLESS FIT.</em>
+                        </h2>
+                        <p class="manifesto-text">
+                            At BigHub (Truehub Apparels), our Howrah manufacturing factory oversees end-to-end production: 
+                            from yarn selection and bio-wash pre-shrinking to precision automated cutting and durable reinforced double-stitch seams.
+                        </p>
+
+                        <!-- BigHub Value Pillars with Authentic Icons -->
+                        <div class="pillars-grid">
+                            <div class="pillar-card">
+                                <img src="assets/images/high-quality.png" alt="Superior Quality" class="pillar-icon">
+                                <h4 class="pillar-title">Superior Quality</h4>
+                                <p class="pillar-desc">100% Super-combed cotton, skin-friendly, and pre-shrunk for zero post-wash distortion.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <img src="assets/images/ecology.png" alt="Eco Bio-Wash" class="pillar-icon">
+                                <h4 class="pillar-title">Eco-Friendly Dyeing</h4>
+                                <p class="pillar-desc">AZO-free, hypoallergenic reactive dyes ensuring vibrant, long-lasting colorfastness.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <img src="assets/images/expertise.png" alt="10+ Years Expertise" class="pillar-icon">
+                                <h4 class="pillar-title">Factory Craftsmanship</h4>
+                                <p class="pillar-desc">Over a decade of precision tailoring with reinforced stress seams for active play.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <img src="assets/images/vision.png" alt="Export Vision" class="pillar-icon">
+                                <h4 class="pillar-title">Global B2B Supply</h4>
+                                <p class="pillar-desc">Reliable turnaround for bulk distributor orders across India and export markets.</p>
+                            </div>
+                        </div>
+
+                        <!-- Key B2B Specifications -->
+                        <div class="manifesto-metrics">
+                            <div class="metric-box">
+                                <span class="metric-num">500K+</span>
+                                <span class="metric-label">Garments Delivered</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-num">100%</span>
+                                <span class="metric-label">Super-Combed Cotton</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-num">10+</span>
+                                <span class="metric-label">Years of Craftsmanship</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Factory Visual Anchor -->
+                    <div class="manifesto-aside">
+                        <div class="factory-banner-card">
+                            <img src="assets/images/about-banner.jpg" alt="BigHub Manufacturing Factory" class="factory-banner-img">
+                            <div class="factory-banner-badge">
+                                <span>HOWRAH FACTORY · TRUEHUB APPARELS</span>
+                            </div>
+                        </div>
+
+                        <div class="factory-card">
+                            <div class="factory-card-header">
+                                <span class="factory-title">WHOLESALE SPEC SHEET</span>
+                                <span class="factory-code">TH-HQ-2026</span>
+                            </div>
+                            <ul class="factory-list">
+                                <li><strong>Fabrics:</strong> 180–220 GSM single jersey, French terry, and pique cotton</li>
+                                <li><strong>Dyes:</strong> Skin-safe, AZO-free reactive dyes for vibrant colorfastness</li>
+                                <li><strong>Sizes:</strong> Comprehensive scaling from 2 to 14 years</li>
+                                <li><strong>Packaging:</strong> Individual bio-degradable polybagging with custom retail hanger packs</li>
+                            </ul>
+                            <a href="https://wa.me/919831281000?text=Please%20share%20BigHub%20wholesale%20price%20list%20and%20terms." 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="factory-btn">
+                                INQUIRE WHOLESALE TERMS →
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. COMPREHENSIVE WHOLESALE PRODUCT CATALOG (FULL HEAD & FACE VISIBLE) -->
+            <section class="block-catalog" id="collections">
+                <div class="catalog-header">
+                    <span class="section-tag">[ 2026 WHOLESALE COLLECTION ]</span>
+                    <h2 class="catalog-title">EXPLORE THE COMPLETE ARCHIVE</h2>
+                    <p class="catalog-subtitle">
+                        Every style is manufactured in-house, available for immediate bulk wholesale and distributor booking.
+                    </p>
+
+                    <!-- Filter Tabs -->
+                    <div class="catalog-tabs">
+                        <button class="tab-btn is-active" data-filter="all">ALL CATALOGUE</button>
+                        <button class="tab-btn" data-filter="baba-suit">BABA SUITS (24 STYLES)</button>
+                        <button class="tab-btn" data-filter="double-set">DOUBLE TOP & PANT (13 STYLES)</button>
+                        <button class="tab-btn" data-filter="signature">SIGNATURE EDITORIAL</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid (Portrait Aspect Ratio - Heads & Faces 100% Intact) -->
+                <div class="products-grid" id="productsGrid">
+                    
+                    <!-- Baba Suits Collection (1-6) -->
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit1.jpeg" alt="BigHub Baba Suit Look 01" loading="lazy">
+                            <span class="product-badge">BABA SUIT 01</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Classic Baba Suit Look 01</h4>
+                            <p class="product-spec">Combed Cotton · Bio-Washed · Ages 2–14Y</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2001" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit2.jpeg" alt="BigHub Baba Suit Look 02" loading="lazy">
+                            <span class="product-badge">BABA SUIT 02</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Printed Baba Suit Set 02</h4>
+                            <p class="product-spec">Vibrant Print · Skin-Safe Dye · Soft Feel</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2002" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit3.jpeg" alt="BigHub Baba Suit Look 03" loading="lazy">
+                            <span class="product-badge">BABA SUIT 03</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Coordinated Baba Suit 03</h4>
+                            <p class="product-spec">2-Piece Ensemble · Durable Double Stitch</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2003" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit4.jpeg" alt="BigHub Baba Suit Look 04" loading="lazy">
+                            <span class="product-badge">BABA SUIT 04</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Designer Baba Suit 04</h4>
+                            <p class="product-spec">Premium Graphic Tee & Shorts Set</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2004" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit5.jpeg" alt="BigHub Baba Suit Look 05" loading="lazy">
+                            <span class="product-badge">BABA SUIT 05</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Sportive Baba Suit 05</h4>
+                            <p class="product-spec">Active Fit · Breathable Combed Weave</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2005" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="baba-suit">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/baba-suit6.jpeg" alt="BigHub Baba Suit Look 06" loading="lazy">
+                            <span class="product-badge">BABA SUIT 06</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Heritage Baba Suit 06</h4>
+                            <p class="product-spec">Classic Styling · Contrast Collar</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Baba%20Suit%2006" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Double Top & Double Pant Collection (1-4) -->
+                    <div class="product-card" data-category="double-set">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/double-top-double-pant1.jpeg" alt="Double Top Double Pant Look 01" loading="lazy">
+                            <span class="product-badge product-badge--indigo">DOUBLE SET 01</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Double Top & Double Pant 01</h4>
+                            <p class="product-spec">4-Piece Value Pack · High-Street Styling</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Double%20Top%2001" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="double-set">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/double-top-double-pant2.jpeg" alt="Double Top Double Pant Look 02" loading="lazy">
+                            <span class="product-badge product-badge--indigo">DOUBLE SET 02</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Double Top & Double Pant 02</h4>
+                            <p class="product-spec">Versatile Mix-and-Match Playwear Combo</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Double%20Top%2002" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="double-set">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/double-top-double-pant3.jpeg" alt="Double Top Double Pant Look 03" loading="lazy">
+                            <span class="product-badge product-badge--indigo">DOUBLE SET 03</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Double Top & Double Pant 03</h4>
+                            <p class="product-spec">Comfort Stretch Cotton · Retail Ready</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Double%20Top%2003" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="double-set">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/double-top-double-pant4.jpeg" alt="Double Top Double Pant Look 04" loading="lazy">
+                            <span class="product-badge product-badge--indigo">DOUBLE SET 04</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Double Top & Double Pant 04</h4>
+                            <p class="product-spec">Vibrant Casualwear · Bio-Washed Fabric</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Double%20Top%2004" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Signature Editorial Series -->
+                    <div class="product-card" data-category="signature">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/banner1.jpg" alt="Signature Denim Jacket" loading="lazy">
+                            <span class="product-badge product-badge--pink">EDITORIAL 01</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Signature Denim & Tee Edition</h4>
+                            <p class="product-spec">Export Grade · Washed Denim & Premium Tee</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Signature%20Denim%2001" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="signature">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/banner2.jpg" alt="Signature Orange Co-Ord" loading="lazy">
+                            <span class="product-badge product-badge--pink">EDITORIAL 02</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Vibrant Orange Co-Ord Playwear</h4>
+                            <p class="product-spec">2-Piece Bermuda Set · Breathable Knit</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Signature%20Coord%2002" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="signature">
+                        <div class="product-img-wrapper">
+                            <img src="assets/images/banner3.jpg" alt="Signature Heritage Polo" loading="lazy">
+                            <span class="product-badge product-badge--pink">EDITORIAL 03</span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title">Midnight Heritage Polo Suit</h4>
+                            <p class="product-spec">Semi-Formal · Pique Weave · Occasion Wear</p>
+                            <a href="https://wa.me/919831281000?text=Inquiry%20for%20Signature%20Polo%2003" target="_blank" rel="noopener noreferrer" class="product-wa-btn">
+                                INQUIRE WHOLESALE →
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Complete Catalogue WhatsApp Action -->
+                <div class="catalog-cta-wrap">
+                    <p class="catalog-cta-note">Over 37+ active Baba Suits and Double Top Sets available in our full PDF lookbook.</p>
+                    <a href="https://wa.me/919831281000?text=Hi%20BigHub%2C%20please%20send%20the%20complete%20PDF%20catalogue%20with%20all%2037%2B%20styles." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="btn-pill btn-pill--brand">
+                        DOWNLOAD FULL 2026 PDF CATALOGUE (WHATSAPP)
+                    </a>
+                </div>
+            </section>
+
+            <!-- 4. MASCOT & BRAND HERITAGE SPOTLIGHT ("Bighub, any day anytime") -->
+            <section class="block-mascot" id="mascot">
+                <div class="mascot-box">
+                    <div class="mascot-art-col">
+                        <div class="mascot-img-wrapper">
+                            <img src="assets/images/vector.png" alt="BigHub Mascot Character" class="mascot-img">
+                            <img src="assets/images/cloth.png" alt="Doodle Garment" class="mascot-doodle">
+                        </div>
+                    </div>
+                    
+                    <div class="mascot-text-col">
+                        <span class="mascot-tagline-badge">OFFICIAL BRAND MOTTO</span>
+                        <h2 class="mascot-headline">"BIGHUB, ANY DAY ANYTIME"</h2>
+                        <p class="mascot-quote">
+                            "At BigHub, we believe that every young boy deserves to feel confident, comfortable, and stylish, 
+                            no matter the occasion. Founded with a passion for exceptional children's fashion, 
+                            we have grown into a premier destination for high-quality boys' apparel, offering a wide range of trendy, 
+                            durable, and affordable clothing."
+                        </p>
+                        <div class="mascot-values">
+                            <span>✦ 100% Cotton Comfort</span>
+                            <span>✦ Non-Toxic Dyes</span>
+                            <span>✦ Double Reinforced Stitches</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. B2B WHOLESALE QUOTATION & INQUIRY FORM -->
+            <section class="block-inquiry" id="inquiry">
+                <div class="inquiry-grid">
+                    
+                    <div class="inquiry-intro">
+                        <span class="section-tag">[ B2B WHOLESALE DESK ]</span>
+                        <h2 class="inquiry-heading">REQUEST DIRECT B2B WHOLESALE QUOTATION</h2>
+                        <p class="inquiry-text">
+                            Connect directly with our Howrah manufacturing head office. 
+                            We supply retailers, regional distributors, e-commerce brands, and export agencies.
+                        </p>
+
+                        <div class="inquiry-contacts">
+                            <div class="contact-line">
+                                <span class="c-label">HEAD OFFICE & FACTORY:</span>
+                                <span class="c-val">2, Subhash Tower, 2nd Floor, Bhagwan Ganguly Lane, Howrah – 711101, West Bengal</span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="c-label">DIRECT PHONE / WHATSAPP:</span>
+                                <a href="tel:+919831281000" class="c-val c-val--link">+91 98312 81000</a>
+                            </div>
+                            <div class="contact-line">
+                                <span class="c-label">DIRECT OFFICIAL EMAIL:</span>
+                                <a href="mailto:truehubapparels@gmail.com" class="c-val c-val--link">truehubapparels@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Functional Interactive B2B Form -->
+                    <div class="inquiry-form-card">
+                        <h3 class="form-title">WHOLESALE INQUIRY</h3>
+                        <form id="wholesaleForm" class="b2b-form">
+                            <div class="form-group">
+                                <label for="b2bName">YOUR NAME / BUSINESS NAME *</label>
+                                <input type="text" id="b2bName" required placeholder="e.g. Rahul Sharma / Style Hub Retail">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="b2bPhone">WHATSAPP / MOBILE NUMBER *</label>
+                                <input type="tel" id="b2bPhone" required placeholder="+91 98765 43210">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="b2bCity">CITY & STATE *</label>
+                                    <input type="text" id="b2bCity" required placeholder="e.g. Kolkata, West Bengal">
+                                </div>
+                                <div class="form-group">
+                                    <label for="b2bQty">ESTIMATED ORDER QTY</label>
+                                    <select id="b2bQty">
+                                        <option value="50 - 100 Pcs (Test MOQ)">50 – 100 Pcs (Test MOQ)</option>
+                                        <option value="100 - 300 Pcs (Wholesale)">100 – 300 Pcs (Wholesale)</option>
+                                        <option value="500+ Pcs (Distributor)">500+ Pcs (Distributor)</option>
+                                        <option value="1000+ Pcs (Bulk Custom)">1000+ Pcs (Bulk Custom)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="b2bMessage">COLLECTION PREFERENCE & NOTES</label>
+                                <textarea id="b2bMessage" rows="3" placeholder="Interested in Baba Suits and Double Sets. Please share current ready stock and price matrix."></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit-btn">
+                                <span>SUBMIT B2B INQUIRY VIA WHATSAPP →</span>
+                            </button>
+                            <p class="form-secure-note">Instant direct connection to our Truehub Apparels sales director.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 6. COMPREHENSIVE B2B FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-inner">
+                
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <img src="assets/images/logo-f.png" alt="BigHub Boys Collection" class="footer-logo">
+                        <p class="footer-brand-motto">"Bighub, any day anytime."</p>
+                        <p class="footer-brand-sub">A unit of Truehub Apparels. Quality boys apparel manufacturer & wholesale exporter.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">WHOLESALE LINES</h4>
+                        <ul class="footer-links">
+                            <li><a href="#collections">Baba Suits (24 Variants)</a></li>
+                            <li><a href="#collections">Double Top & Pant Sets</a></li>
+                            <li><a href="#collections">Denim & Outerwear</a></li>
+                            <li><a href="#collections">Occasion Collar Polos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">B2B NAVIGATION</h4>
+                        <ul class="footer-links">
+                            <li><a href="#hero">Hero Portal</a></li>
+                            <li><a href="#factory">Manufacturing Factory</a></li>
+                            <li><a href="#mascot">Heritage & Motto</a></li>
+                            <li><a href="#inquiry">Wholesale Quotation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">FACTORY HEAD OFFICE</h4>
+                        <div class="footer-contact-block">
+                            <p><strong>Factory:</strong> 2, Subhash Tower, 2nd Floor, Bhagwan Ganguly Lane, Howrah – 711101, WB</p>
+                            <p><strong>Mobile:</strong> <a href="tel:+919831281000">+91 98312 81000</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:truehubapparels@gmail.com">truehubapparels@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="copyright">© 2026 BigHub Boys Collection · Truehub Apparels. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span>ISO Standards Compliant</span>
+                        <span class="sep">·</span>
+                        <span>100% Combed Cotton</span>
+                        <span class="sep">·</span>
+                        <span>AZO-Free Dyes</span>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+        <!-- FLOATING MINIMAL BOTTOM DOCK (ENIGMA RHYTHM) -->
+        <div class="floating-dock">
+            <div class="dock-left">
+                <span class="dock-dot"></span>
+                <span class="dock-text">TRUEHUB APPARELS · HOWRAH</span>
+            </div>
+
+            <button class="dock-menu-btn" id="dockMenuBtn" aria-label="Open Navigation Menu">
+                <span class="menu-burger">
+                    <span class="burger-line line-1"></span>
+                    <span class="burger-line line-2"></span>
+                    <span class="burger-line line-3"></span>
+                </span>
+            </button>
+
+            <div class="dock-right">
+                <a href="https://wa.me/919831281000?text=Hi%20BigHub%2C%20connecting%20via%20website%20dock." target="_blank" rel="noopener noreferrer" class="dock-phone-link">
+                    WHATSAPP DIRECT
+                </a>
+            </div>
+        </div>
+
+        <!-- FULL-SCREEN THEATRICAL OVERLAY MENU -->
+        <div class="theatrical-menu" id="theatricalMenu">
+            <div class="menu-backdrop"></div>
+            
+            <div class="menu-content">
+                <div class="menu-eyebrow">NAVIGATION DIRECTORY</div>
+                
+                <ul class="menu-nav-list">
+                    <li class="menu-item">
+                        <a href="#hero" class="menu-link">
+                            <span class="menu-num">01</span>
+                            <span class="menu-title">HERO OVERVIEW</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#factory" class="menu-link">
+                            <span class="menu-num">02</span>
+                            <span class="menu-title">MANUFACTURING & FACTORY</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#collections" class="menu-link">
+                            <span class="menu-num">03</span>
+                            <span class="menu-title">WHOLESALE CATALOGUE (37+ STYLES)</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#mascot" class="menu-link">
+                            <span class="menu-num">04</span>
+                            <span class="menu-title">BRAND MASCOT & MOTTO</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#inquiry" class="menu-link">
+                            <span class="menu-num">05</span>
+                            <span class="menu-title">B2B INQUIRY DESK</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="menu-footer">
+                    <div>BigHub Boys Collection / Truehub Apparels</div>
+                    <div>2 Subhash Tower, 2nd Floor, Bhagwan Ganguly Lane, Howrah – 711101, West Bengal</div>
+                    <div><a href="mailto:truehubapparels@gmail.com">truehubapparels@gmail.com</a> · <a href="tel:+919831281000">+91 98312 81000</a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GSAP & ScrollTrigger for high-end cinematic motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis for ultra-smooth inertial momentum scrolling -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
