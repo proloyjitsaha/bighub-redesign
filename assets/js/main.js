@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (targetEl) {
                         e.preventDefault();
                         lenis.scrollTo(targetEl, {
-                            offset: -70,
-                            duration: 1.4,
+                            offset: -85,
+                            duration: 1.2,
                             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                         });
                     }
@@ -344,7 +344,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let rafId = null;
 
-            card.addEventListener('pointerenter', () => {
+            card.addEventListener('pointerenter', (e) => {
+                if (e.pointerType === 'touch' || window.matchMedia('(hover: none)').matches) return;
                 card._isHovered = true;
                 card.style.transition = 'transform 0.15s ease-out, box-shadow 0.25s ease-out, border-color 0.3s ease';
             });
@@ -587,40 +588,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       11. THEATRICAL FULLSCREEN MENU
+       11. THEATRICAL FULLSCREEN MENU CONTROLLER (DESKTOP & MOBILE)
        ========================================================================== */
     const dockMenuBtn = document.getElementById('dockMenuBtn');
+    const headerMenuBtn = document.getElementById('headerMenuBtn');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
     const theatricalMenu = document.getElementById('theatricalMenu');
+    const menuBackdrop = document.querySelector('.menu-backdrop');
 
-    if (dockMenuBtn && theatricalMenu) {
-        dockMenuBtn.addEventListener('click', () => {
-            const isOpen = theatricalMenu.classList.contains('is-open');
-            if (isOpen) {
-                theatricalMenu.classList.remove('is-open');
-                dockMenuBtn.classList.remove('is-active');
-                if (lenis) lenis.start();
-            } else {
-                theatricalMenu.classList.add('is-open');
-                dockMenuBtn.classList.add('is-active');
-                if (lenis) lenis.stop();
+    if (theatricalMenu) {
+        function openMenu() {
+            theatricalMenu.classList.add('is-open');
+            if (dockMenuBtn) dockMenuBtn.classList.add('is-active');
+            if (headerMenuBtn) headerMenuBtn.classList.add('is-active');
+            if (lenis) lenis.stop();
 
-                if (typeof gsap !== 'undefined') {
-                    gsap.from('.menu-link', {
-                        y: 30,
-                        opacity: 0,
-                        stagger: 0.08,
-                        duration: 0.5,
-                        ease: 'power3.out'
-                    });
-                }
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo('.menu-link', 
+                    { y: 25, opacity: 0 }, 
+                    { y: 0, opacity: 1, stagger: 0.06, duration: 0.45, ease: 'power3.out' }
+                );
             }
-        });
+        }
+
+        function closeMenu() {
+            theatricalMenu.classList.remove('is-open');
+            if (dockMenuBtn) dockMenuBtn.classList.remove('is-active');
+            if (headerMenuBtn) headerMenuBtn.classList.remove('is-active');
+            if (lenis) lenis.start();
+        }
+
+        function toggleMenu() {
+            if (theatricalMenu.classList.contains('is-open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+
+        if (dockMenuBtn) dockMenuBtn.addEventListener('click', toggleMenu);
+        if (headerMenuBtn) headerMenuBtn.addEventListener('click', toggleMenu);
+        if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
 
         document.querySelectorAll('.menu-link').forEach(link => {
             link.addEventListener('click', () => {
-                theatricalMenu.classList.remove('is-open');
-                dockMenuBtn.classList.remove('is-active');
-                if (lenis) lenis.start();
+                closeMenu();
             });
         });
     }

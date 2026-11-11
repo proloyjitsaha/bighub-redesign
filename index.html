@@ -2,7 +2,7 @@
 <html lang="en" class="home-loading">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>BigHub Boys Collection — Wholesale & Factory Direct</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
@@ -64,19 +64,27 @@
                     </a>
                 </div>
 
-                <!-- Right: Quick B2B Utility & WhatsApp Link -->
+                <!-- Right: Quick B2B Utility & WhatsApp Link + Mobile Menu Trigger -->
                 <div class="site-header__right">
                     <nav class="header-nav">
-                        <a href="#collections" class="nav-item">COLLECTIONS</a>
-                        <a href="#factory" class="nav-item">FACTORY</a>
-                        <a href="#inquiry" class="nav-item">INQUIRY</a>
+                        <a href="#collections" class="nav-item nav-item--desktop">COLLECTIONS</a>
+                        <a href="#factory" class="nav-item nav-item--desktop">FACTORY</a>
+                        <a href="#inquiry" class="nav-item nav-item--desktop">INQUIRY</a>
                         <a href="https://wa.me/919831281000?text=Hi%20BigHub%2C%20we%20are%20looking%20for%20B2B%20wholesale%20catalogue%20and%20pricing." 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="nav-item nav-item--cta">
-                           WHATSAPP B2B
+                           <span class="cta-full-label">WHATSAPP B2B</span>
+                           <span class="cta-mobile-label">WHATSAPP</span>
                         </a>
                     </nav>
+                    <button class="header-menu-btn" id="headerMenuBtn" aria-label="Toggle Navigation Directory">
+                        <span class="hburger">
+                            <span class="hburger-line hline-1"></span>
+                            <span class="hburger-line hline-2"></span>
+                            <span class="hburger-line hline-3"></span>
+                        </span>
+                    </button>
                 </div>
 
             </div>
@@ -669,6 +677,7 @@
             <div class="menu-backdrop"></div>
             
             <div class="menu-content">
+                <button class="menu-close-btn" id="menuCloseBtn" aria-label="Close Navigation Menu">&times;</button>
                 <div class="menu-eyebrow">NAVIGATION DIRECTORY</div>
                 
                 <ul class="menu-nav-list">
