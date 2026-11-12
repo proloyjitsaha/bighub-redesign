@@ -251,21 +251,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       6. REPEATABLE WAVILY FLOATING & FADING SECTION REVEALS (BIDIRECTIONAL)
+       6. REPEATABLE WAVILY FLOATING & FADING SECTION REVEALS (DESKTOP & MOBILE)
        ========================================================================== */
     let sectionObserver = null;
     let cardObserver = null;
 
     function initSectionWaveScroll() {
         const sections = document.querySelectorAll('.block-manifesto, .block-catalog, .block-mascot, .block-inquiry, .site-footer');
-        
-        // On mobile, immediately reveal all sections so users never see blank white scroll gaps
-        if (window.innerWidth < 768) {
-            sections.forEach(section => {
-                section.classList.add('is-inview');
-            });
-            return;
-        }
 
         sections.forEach(section => {
             section.classList.add('section-wave-reveal');
@@ -279,12 +271,12 @@ document.addEventListener('DOMContentLoaded', () => {
             elementsToStagger.forEach((el, idx) => {
                 el.classList.add('float-wave-item');
                 // Calculate subtle sinusoidal wave delay
-                const delay = (0.06 + (idx * 0.08)).toFixed(3);
+                const delay = (0.05 + (idx * 0.07)).toFixed(3);
                 el.style.setProperty('--wave-delay', `${delay}s`);
             });
         });
 
-        // Intersection Observer for silky smooth in-view triggers (bidirectional)
+        // Intersection Observer for silky smooth in-view triggers (bidirectional on desktop and mobile)
         if (sectionObserver) sectionObserver.disconnect();
         sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -292,16 +284,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     section.classList.add('is-inview');
                 } else {
-                    // When scrolling back up, if section exits below the viewport, reset it
+                    // Only reset if section has actually exited BELOW the viewport (user scrolled up)
                     const rect = entry.boundingClientRect;
-                    if (rect.top > 0) {
+                    if (rect.top >= window.innerHeight * 0.85) {
                         section.classList.remove('is-inview');
                     }
                 }
             });
         }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -40px 0px'
+            threshold: 0.02,
+            rootMargin: '30px 0px -30px 0px'
         });
 
         sections.forEach(s => sectionObserver.observe(s));
@@ -314,19 +306,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const allCards = document.querySelectorAll('.product-card, .strip-card');
         const productCards = document.querySelectorAll('.product-card');
 
-        // On mobile, immediately reveal all cards
-        if (window.innerWidth < 768) {
-            productCards.forEach((card) => {
-                card.classList.add('is-revealed');
-            });
-            return;
-        }
-
         productCards.forEach((card) => {
             card.classList.add('scroll-float-item');
         });
 
-        // Bidirectional Intersection Observer to float cards in with a wave pattern repeatedly
+        // Bidirectional Intersection Observer to float cards in with a 3D wave pattern repeatedly
         if (cardObserver) cardObserver.disconnect();
         cardObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -334,10 +318,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     if (card.classList.contains('is-revealed')) return;
 
-                    // Stagger based on column index
+                    // Stagger based on column index or order
                     const rect = card.getBoundingClientRect();
-                    const colIndex = Math.max(0, Math.min(3, Math.floor((rect.left / window.innerWidth) * 4)));
-                    const waveDelay = (colIndex * 0.10) + 0.04;
+                    const isMobile = window.innerWidth < 768;
+                    const colIndex = isMobile ? (Array.from(productCards).indexOf(card) % 2) : Math.max(0, Math.min(3, Math.floor((rect.left / window.innerWidth) * 4)));
+                    const waveDelay = (colIndex * 0.09) + 0.04;
                     
                     if (card._waveTimer) clearTimeout(card._waveTimer);
                     card._waveTimer = setTimeout(() => {
@@ -345,8 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         card._waveTimer = null;
                     }, waveDelay * 1000);
                 } else {
-                    // If card is below viewport (user scrolled up), reset so it can re-animate on scroll down
-                    if (entry.boundingClientRect.top > 0) {
+                    // Only reset if card has exited below viewport (user scrolled up)
+                    if (entry.boundingClientRect.top >= window.innerHeight * 0.85) {
                         if (card._waveTimer) {
                             clearTimeout(card._waveTimer);
                             card._waveTimer = null;
@@ -360,13 +345,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.03,
+            rootMargin: '20px 0px -20px 0px'
         });
 
         productCards.forEach(card => cardObserver.observe(card));
 
-        // Interactive 3D cursor tilt + specular glare on ALL image cards
+        // Interactive 3D cursor tilt + specular glare on ALL image cards (Desktop Mouse & Mobile Touch)
         allCards.forEach(card => {
             let glare = card.querySelector('.card-3d-glare');
             if (!glare) {
@@ -374,6 +359,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 glare.className = 'card-3d-glare';
                 card.appendChild(glare);
             }
+
+            // Mobile Touch 3D depth feedback
+            card.addEventListener('touchstart', () => {
+                card.classList.add('is-touched');
+            }, { passive: true });
+
+            card.addEventListener('touchend', () => {
+                setTimeout(() => card.classList.remove('is-touched'), 350);
+            }, { passive: true });
+
+            card.addEventListener('touchcancel', () => {
+                card.classList.remove('is-touched');
+            }, { passive: true });
 
             let rafId = null;
 
@@ -513,9 +511,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lenis) {
         lenis.on('scroll', (e) => handleGlobalScroll(e.scroll));
-    } else {
-        window.addEventListener('scroll', () => handleGlobalScroll(window.scrollY), { passive: true });
     }
+    window.addEventListener('scroll', () => handleGlobalScroll(window.scrollY), { passive: true });
 
     window.addEventListener('wheel', (e) => {
         if (window.scrollY <= 25 && e.deltaY < 0) {
