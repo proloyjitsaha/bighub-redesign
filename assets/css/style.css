@@ -1691,25 +1691,24 @@ a, button {
 .theatrical-menu {
     position: fixed;
     inset: 0;
-    z-index: 900;
-    display: flex;
+    z-index: 99999;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s var(--ease-out-expo), visibility 0.5s var(--ease-out-expo);
+    background: #fbfbfe;
+    transition: opacity 0.3s ease;
 }
 
 .theatrical-menu.is-open {
+    display: flex;
     opacity: 1;
-    visibility: visible;
 }
 
 .menu-backdrop {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 235, 245, 0.96) 0%, rgba(235, 245, 255, 0.96) 60%, rgba(251, 251, 254, 0.98) 100%);
-    backdrop-filter: blur(25px);
+    background: #fbfbfe;
 }
 
 .menu-content {
@@ -1931,14 +1930,41 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Container breathing room on mobile */
-    .block-hero,
+    /* Prevent blank white sections on mobile during scroll */
+    .section-wave-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .float-wave-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .product-card.scroll-float-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Container breathing room & proper height on mobile */
+    .block-hero {
+        min-height: auto;
+        padding-top: 92px;
+        padding-bottom: 44px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .block-manifesto,
     .block-catalog,
     .block-mascot,
     .block-inquiry {
+        padding-top: 50px;
+        padding-bottom: 50px;
         padding-left: 16px;
         padding-right: 16px;
+        scroll-margin-top: 75px;
     }
 
     .hero-top-meta {
@@ -1946,6 +1972,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 6px;
+        margin-bottom: 16px;
     }
     .meta-divider {
         display: none;
@@ -1958,27 +1985,62 @@ body {
         letter-spacing: -0.02em;
     }
 
-    .hero-tagline {
-        font-size: 14px;
+    .hero-tagline-container {
+        margin: 0 auto 24px;
+    }
+
+    .hero-tagline-primary {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .hero-tagline-secondary {
+        font-size: 13px;
         line-height: 1.5;
-        max-width: 100%;
     }
 
     .hero-actions {
         flex-direction: column;
         width: 100%;
         max-width: 320px;
-        margin: 0 auto;
+        margin: 0 auto 36px;
         gap: 10px;
     }
 
-    .hero-actions .btn {
+    .hero-actions .btn-pill {
         width: 100%;
         min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 12px;
+        padding: 12px 20px;
+        text-align: center;
+    }
+
+    /* Hero Look Strips on mobile */
+    .hero-catalog-strip {
+        max-width: 100%;
+    }
+
+    .strip-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .strip-pills {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .strip-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     /* Manifesto / Factory mobile stack */
@@ -2002,6 +2064,17 @@ body {
         padding: 0 4px;
     }
 
+    /* 100% Face visibility framing on mobile */
+    .product-img-wrapper {
+        aspect-ratio: 3 / 4;
+        overflow: hidden;
+    }
+
+    .product-img-wrapper img {
+        object-fit: cover;
+        object-position: center 2% !important; /* Preserves kid heads and faces completely */
+    }
+
     .product-info {
         padding: 16px;
     }
@@ -2016,6 +2089,11 @@ body {
         align-items: center;
         justify-content: center;
         font-size: 11px;
+    }
+
+    /* Floating dock hidden on mobile to never block CTAs */
+    .floating-dock {
+        display: none !important;
     }
 
     /* Mascot mobile layout */

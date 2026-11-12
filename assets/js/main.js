@@ -44,11 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     const targetEl = document.querySelector(targetId);
                     if (targetEl) {
                         e.preventDefault();
-                        lenis.scrollTo(targetEl, {
-                            offset: -85,
-                            duration: 1.2,
-                            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-                        });
+                        if (targetId === '#hero') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            if (lenis) lenis.scrollTo(0, { duration: 1 });
+                            return;
+                        }
+                        if (window.innerWidth < 768) {
+                            const offset = 75;
+                            const bodyRect = document.body.getBoundingClientRect().top;
+                            const elementRect = targetEl.getBoundingClientRect().top;
+                            const elementPosition = elementRect - bodyRect;
+                            const offsetPosition = elementPosition - offset;
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            lenis.scrollTo(targetEl, {
+                                offset: -85,
+                                duration: 1.2,
+                                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                            });
+                        }
                     }
                 }
             });
@@ -242,6 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function initSectionWaveScroll() {
         const sections = document.querySelectorAll('.block-manifesto, .block-catalog, .block-mascot, .block-inquiry, .site-footer');
         
+        // On mobile, immediately reveal all sections so users never see blank white scroll gaps
+        if (window.innerWidth < 768) {
+            sections.forEach(section => {
+                section.classList.add('is-inview');
+            });
+            return;
+        }
+
         sections.forEach(section => {
             section.classList.add('section-wave-reveal');
             
@@ -288,6 +313,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function init3DCardPhysics() {
         const allCards = document.querySelectorAll('.product-card, .strip-card');
         const productCards = document.querySelectorAll('.product-card');
+
+        // On mobile, immediately reveal all cards
+        if (window.innerWidth < 768) {
+            productCards.forEach((card) => {
+                card.classList.add('is-revealed');
+            });
+            return;
+        }
 
         productCards.forEach((card) => {
             card.classList.add('scroll-float-item');
@@ -615,6 +648,9 @@ document.addEventListener('DOMContentLoaded', () => {
             theatricalMenu.classList.remove('is-open');
             if (dockMenuBtn) dockMenuBtn.classList.remove('is-active');
             if (headerMenuBtn) headerMenuBtn.classList.remove('is-active');
+            if (typeof gsap !== 'undefined') {
+                gsap.set('.menu-link', { clearProps: 'all' });
+            }
             if (lenis) lenis.start();
         }
 
